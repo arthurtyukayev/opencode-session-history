@@ -1,0 +1,47 @@
+{
+  "name": "opencode-session-history",
+  "version": "0.1.0",
+  "description": "OpenCode plugin for searching and retrieving chat history",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "type": "module",
+  "packageManager": "bun@1.3.9",
+  "files": [
+    "dist",
+    "index.ts",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "scripts/install-local.sh"
+  ],
+  "scripts": {
+    "build": "bun build ./index.ts --outfile ./dist/index.js --target bun --format esm",
+    "typecheck": "bunx tsc --noEmit",
+    "install:local": "bash scripts/install-local.sh",
+    "test": "bun run typecheck",
+    "prepublishOnly": "bun run build && bun run typecheck"
+  },
+  "keywords": [
+    "opencode",
+    "plugin",
+    "history",
+    "search",
+    "chat"
+  ],
+  "author": "Arthur Tyukayev",
+  "license": "MIT",
+  "repository": "github:arthurtyukayev/opencode-session-history",
+  "bugs": "https://github.com/arthurtyukayev/opencode-session-history/issues",
+  "homepage": "https://github.com/arthurtyukayev/opencode-session-history#readme",
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "peerDependencies": {
+    "@opencode-ai/plugin": "^1.0.0",
+    "bun": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  }
+}
