@@ -19,6 +19,18 @@ Search your local OpenCode chat history for sessions containing specific text.
 - Snippets from each session (2 per session, 220 chars each)
 - Suggested `session-transcript` calls and a `question`-tool prompt to let users pick which session to open
 
+### `session-title-search`
+
+Search for sessions by their title.
+
+**Args**
+- `query` (string, required): Title text to search for (1-200 chars, non-whitespace)
+- `limitSessions` (number, optional): Max sessions to return (1-12, default: 6)
+
+**Returns**
+- Matching sessions with metadata (title, slug, directory, project name, timestamps)
+- Suggested `session-transcript` calls and a `question`-tool prompt to let users pick which session to open
+
 ### `session-transcript`
 
 Reconstruct the full transcript of a specific chat session.
@@ -55,6 +67,9 @@ Restart OpenCode so the plugin is loaded.
 ```
 Find my recent work on authentication:
 ⚙ session-search [query=auth login, limitSessions=5]
+
+Find a session by title:
+⚙ session-title-search [query=bug fix]
 
 Get the full conversation:
 ⚙ session-transcript [sessionId=ses_abc123, limit=100]
